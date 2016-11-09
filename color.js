@@ -50,6 +50,7 @@ Color.brightness = function(rgb){}
   var bright = (Color.redIntensity(rgb) + Color.greenIntensity(rgb) + Color.blueIntensity(rgb))/3;
   return bright;
 }
+
 //complement
 Color.complement = function(rgb){
   var comp = [];
@@ -61,6 +62,30 @@ Color.complement = function(rgb){
 
 //greyScale
 Color.greyScale = function(rgb){
-  var grey = [];
-  var average = (rgb[0]+rgb[1]+rgb[2])/3;
+  var avg = (rgb[0]+rgb[1]+rgb[2])/3;
+  var grey = [avg, avg, avg];
+  return grey;
+}
+
+//tint, tone, and shades
+Color.tint = function(rgb){
+  var tint = [];
+  for (var t=0;t<3;t++){
+    tint [t] = ([t]+255)/2;
+  }
+  return tint;
+}
+Color.tone = function(rgb){
+  var tone = [];
+  for (var t=0;t<3;t++){
+    tone[t] = ([t]+127.5)/2;
+  }
+  return tone;
+}
+Color.shade = function(rgb){
+  var shade = [];
+  for (var s=0;s<3;s++){
+    shade[s] = [s]/2;
+  }
+  return shade;
 }
